@@ -5,7 +5,7 @@ from behave import when, then
 
 @when(u'I request a response for "{colour}" and "{animal}"')
 def step_impl(context, colour, animal):
-    endpoint = os.getenv("ENDPOINT").lstrip('/') + '/coloured_animal'
+    endpoint = os.getenv("ENDPOINT").rstrip('/') + '/coloured_animal'
     context.response = requests.get(url=endpoint, params={'colour': colour, 'animal': animal})
 
 
